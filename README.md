@@ -72,3 +72,103 @@ The supplied FDA export contains regulatory tables, not a complete clinical refe
 ## Notebook included
 
 `notebook.ipynb` is included as a learning/testing notebook. Run its earlier data loading and vector-store setup cells first, then run the final section titled **Updated MedRAG retrieval and answer logic (final version)**. The Streamlit app uses `app.py` + `rag_backend.py`; editing the notebook alone does not change the running app. Both are configured to use `gemini-3.5-flash` by default.
+
+## ⚙️ Installation & Local Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/vs-vamsi-krishna/MediBot.git
+cd MediBot
+```
+
+### 2. Create a Virtual Environment
+
+```bash
+python -m venv .venv
+```
+
+Activate it:
+
+**Windows:**
+```powershell
+.venv\Scripts\activate
+```
+
+**Linux / macOS:**
+```bash
+source .venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure API Keys
+
+Create `.streamlit/secrets.toml` and add:
+
+```toml
+GEMINI_API_KEY = "your_gemini_api_key"
+HF_TOKEN = "your_huggingface_token"
+```
+
+Never commit this file to GitHub.
+
+### 5. Prepare Required Data
+
+Ensure the prepared FDA product records are available at:
+
+```text
+processed/product_records.csv
+```
+
+Ensure the FDA SQLite database is available at:
+
+```text
+data/processed/fda_prepared.db
+```
+
+The ChromaDB vector store can be downloaded from the Hugging Face dataset repository when the application starts.
+
+### 6. Run the Application
+
+```bash
+streamlit run app.py
+```
+
+The application will open in your browser.
+
+## ☁️ Cloud Deployment
+
+MedRAG is deployed using **Streamlit Community Cloud**, with GitHub for source-code management and Hugging Face for ChromaDB storage.
+
+### Deployment Workflow
+
+1. Push the project source code to a GitHub repository.
+2. Upload the ChromaDB vector store to a Hugging Face Dataset repository.
+3. Open [Streamlit Community Cloud](https://share.streamlit.io/).
+4. Connect your GitHub account.
+5. Select the MedRAG repository and `main` branch.
+6. Set the main application file to `app.py`.
+7. Configure the following secrets in Streamlit Cloud:
+
+```toml
+GEMINI_API_KEY = "your_gemini_api_key"
+HF_TOKEN = "your_huggingface_token"
+```
+
+8. Select Python 3.12 and deploy the application.
+
+### Deployment Architecture
+
+- **GitHub:** Stores application source code and prepared FDA data.
+- **Hugging Face:** Hosts the ChromaDB vector store.
+- **Streamlit Community Cloud:** Hosts the web application.
+- **Google Gemini:** Generates responses using retrieved context.
+
+### Live Application
+
+[https://medibot-qs6s97g9styalqhapkpejx.streamlit.app/]
