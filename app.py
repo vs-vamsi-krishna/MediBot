@@ -7,8 +7,9 @@ import os
 from pathlib import Path
 
 import streamlit as st
+from huggingface_hub import snapshot_download
 
-from config import BASE_DIR, GEMINI_MODEL, TOP_K
+from config import BASE_DIR, CHROMA_DIR, GEMINI_MODEL, TOP_K
 from data_processing import load_or_prepare_records
 from rag_backend import (
     answer_question,
@@ -45,6 +46,23 @@ def get_api_key() -> str | None:
 load_css()
 
 
+def download_chroma_from_huggingface():
+    if (CHROMA_DIR / "chroma.sqlite3").exists():
+        return
+
+    hf_token = st.secrets.get("HF_TOKEN", "") or os.getenv("HF_TOKEN")
+
+    if not hf_token:
+        raise RuntimeError("HF_TOKEN is missing.")
+
+    snapshot_download(
+        repo_id="Vamsikrishna-05/medrag-chroma-db",
+        repo_type="dataset",
+        local_dir=str(CHROMA_DIR),
+        token=hf_token,
+    )
+
+
 @st.cache_data(show_spinner="Loading prepared FDA records...")
 def cached_records():
     return load_or_prepare_records()
@@ -67,6 +85,7 @@ def cached_gemini(api_key: str | None):
 
 with st.spinner("Preparing MedRAG..."):
     try:
+        download_chroma_from_huggingface()
         records = cached_records()
         embeddings = cached_embeddings()
         vectorstore = cached_vectorstore(embeddings)
