@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --medrag-blue: #1769e8;
+  --medrag-blue-dark: #124fb4;
+  --medrag-ink: #14264b;
+  --medrag-muted: #64748b;
+  --medrag-line: #e3ebf6;
+  --medrag-soft: #f3f8ff;
+  --medrag-card: #ffffff;
+}
+
+.stApp {
+  background: #f8fbff;
+  color: var(--medrag-ink);
+}
+[data-testid="stHeader"] {
+  background: rgba(248, 251, 255, 0.92);
+}
+[data-testid="stAppViewContainer"] > .main .block-container {
+  max-width: 1440px;
+  padding-top: 2rem;
+  padding-bottom: 2.2rem;
+}
+[data-testid="stSidebar"] {
+  background: #ffffff;
+  border-right: 1px solid var(--medrag-line);
+}
+[data-testid="stSidebar"] > div:first-child {
+  padding-top: 1.4rem;
+}
+[data-testid="stSidebar"] .block-container,
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+  gap: 0.65rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 4px 26px;
+  border-bottom: 1px solid #edf2fa;
+  margin-bottom: 20px;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: #e8f2ff;
+  color: var(--medrag-blue);
+  font-size: 25px;
+  font-weight: 800;
+}
+.brand-name { color: #10234b; font-size: 23px; font-weight: 800; letter-spacing: -0.7px; }
+.brand-subtitle { color: #6a7d9b; font-size: 11px; margin-top: 2px; }
+.side-label { color: #93a2b9; font-size: 10px; font-weight: 800; letter-spacing: 1.4px; margin: 8px 0 5px; }
+.nav-item {
+  padding: 10px 13px;
+  border-radius: 10px;
+  color: #3b4f70;
+  font-size: 14px;
+  font-weight: 600;
+}
+.nav-active { background: #eaf3ff; color: #145dd1; }
+[data-testid="stSidebar"] .stButton > button {
+  text-align: left;
+  justify-content: flex-start;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #3b4f70;
+  min-height: 40px;
+  padding: 0.55rem 0.75rem;
+  font-weight: 550;
+  border-radius: 10px;
+}
+[data-testid="stSidebar"] .stButton > button:hover {
+  background: #f0f6ff;
+  border-color: #e1edff;
+  color: var(--medrag-blue-dark);
+}
+.sidebar-spacer { height: 18px; }
+.trust-card {
+  background: #f7faff;
+  border: 1px solid #e4edf9;
+  border-radius: 13px;
+  padding: 15px;
+  margin: 14px 0 12px;
+}
+.trust-icon { color: #16845c; font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+.trust-title { color: #243a5e; font-weight: 750; font-size: 13px; }
+.trust-copy { color: #70809a; font-size: 11px; line-height: 1.6; margin-top: 5px; }
+
+.eyebrow { color: #5c7396; font-size: 10px; font-weight: 800; letter-spacing: 1.3px; margin: 4px 0 10px; }
+.status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #1caf79; margin-right: 6px; }
+.page-title { color: #14264b; font-size: clamp(28px, 3vw, 38px); line-height: 1.2; letter-spacing: -1.2px; font-weight: 800; margin: 0 0 10px; }
+.page-subtitle { color: #657895; font-size: 15px; line-height: 1.7; max-width: 800px; margin: 0 0 20px; }
+.powered-label { color: #70809a; font-size: 11px; text-align: right; line-height: 1.7; padding-top: 12px; }
+.powered-label strong { color: #1b64d8; font-size: 15px; }
+
+.feature-card {
+  height: 100%;
+  min-height: 132px;
+  padding: 17px 16px 15px;
+  background: #ffffff;
+  border: 1px solid #e4edf8;
+  border-radius: 13px;
+  box-shadow: 0 3px 12px rgba(37, 82, 140, 0.035);
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+.feature-card:hover { border-color: #c5dcff; transform: translateY(-2px); }
+.feature-symbol {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  background: #eaf3ff;
+  color: var(--medrag-blue);
+  border-radius: 10px;
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.feature-title { color: #1c3155; font-size: 13px; font-weight: 750; margin-bottom: 5px; }
+.feature-desc { color: #74839b; font-size: 11px; line-height: 1.5; }
+.section-heading { color: #263d61; font-size: 14px; font-weight: 750; margin: 26px 0 10px; }
+.stButton > button {
+  border-radius: 10px;
+  border: 1px solid #dce8f7;
+  background: #ffffff;
+  color: #25446f;
+  font-size: 12px;
+  min-height: 42px;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+.stButton > button:hover {
+  background: #f0f6ff;
+  border-color: #a9ccff;
+  color: #145dd1;
+}
+.stButton > button:focus { box-shadow: 0 0 0 2px rgba(23, 105, 232, 0.13); }
+
+[data-testid="stChatMessage"] {
+  background: #ffffff;
+  border: 1px solid #e6edf7;
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 3px 10px rgba(25, 55, 100, 0.025);
+}
+[data-testid="stChatMessage"] p { color: #233755; line-height: 1.75; font-size: 14px; }
+[data-testid="stChatInput"] {
+  border: 1px solid #d8e5f7;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 5px 18px rgba(37, 82, 140, 0.06);
+}
+[data-testid="stChatInput"] textarea { color: #172b4d !important; }
+[data-testid="stChatInput"] textarea::placeholder { color: #8b9bb2 !important; }
+[data-testid="stExpander"] {
+  border: 1px solid #e0eaf7;
+  border-radius: 11px;
+  background: #ffffff;
+}
+[data-testid="stExpander"] summary { color: #31537f; font-weight: 650; }
+[data-testid="stDataFrame"] { border: 1px solid #e6edf7; border-radius: 9px; overflow: hidden; }
+.stAlert { border-radius: 11px; }
+.footer-note { color: #8a99ad; font-size: 10px; text-align: center; margin-top: 28px; padding-top: 12px; border-top: 1px solid #eaf0f8; }
+
+@media (max-width: 900px) {
+  [data-testid="stAppViewContainer"] > .main .block-container { padding: 1.2rem 1rem 2rem; }
+  .page-title { font-size: 29px; }
+  .page-subtitle { font-size: 13px; }
+  .feature-card { min-height: 120px; padding: 13px; }
+  .powered-label { padding-top: 0; }
+}
+
+
+/* Make the question typed in the chat input visible */
+.stChatInput textarea {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff !important;
+}
+
+/* Placeholder text */
+.stChatInput textarea::placeholder {
+    color: #cbd5e1 !important;
+    opacity: 1;
+}
+
+/* Chat input background */
+.stChatInput [data-baseweb="textarea"] {
+    background-color: #1e293b !important;
+    border: 1px solid #475569 !important;
+}
+
+/* Keep typed text readable while focused */
+.stChatInput textarea:focus {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+
+/* Improve question and answer readability */
+
+/* Chat messages: both user questions and assistant answers */
+.stChatMessage p,
+.stChatMessage li {
+    font-size: 17px !important;
+    line-height: 1.75 !important;
+}
+
+/* Headings inside chatbot answers */
+.stChatMessage h1 {
+    font-size: 25px !important;
+}
+
+.stChatMessage h2 {
+    font-size: 22px !important;
+}
+
+.stChatMessage h3 {
+    font-size: 19px !important;
+}
+
+/* Text typed into the question input */
+.stChatInput textarea {
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+}
+
+/* Tables, if an answer contains one */
+.stChatMessage table {
+    font-size: 16px !important;
+}
